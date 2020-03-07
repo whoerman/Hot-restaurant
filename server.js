@@ -47,26 +47,7 @@ app.post("/api/tablerequests", function(req, res) {
   });
 
 
-
-
-
 //Server is listening
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
-  });
-
-
-//Event listener for the submit button (reservation.html page)
-$("#submit").on("click", function(event) {
-    event.preventDefault();
-    var newReservation = {
-      name: $("#name").val().trim(),
-      phone: $("#phone").val().trim(),
-      email: $("#email").val().trim(),
-      id: $("#id").val().trim(),
-    };
-    $.post("/api/tablerequests", newReservation)
-    .then(function(data) {
-        console.log(`Adding table request: ${data}`);
-    });
   });

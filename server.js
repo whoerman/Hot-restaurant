@@ -47,7 +47,7 @@ app.post("/api/tablerequests", function(req, res) {
     let newTable = req.body;
     console.log(newTable);
     tableRequests.push(newTable);
-    if (tableRequests.length<5) {
+    if (tableRequests.length<6) {
         tables.push(newTable);
     }
     else {

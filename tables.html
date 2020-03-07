@@ -71,6 +71,7 @@
                             tableDiv.append($(`<li>`).text(`Email: ${data[i].email}`));
                             tableDiv.append($(`<li>`).text(`Phone: ${data[i].phone}`));
                             tableDiv.append($(`<li>`).text(`ID: ${data[i].id}`));
+                            tableDiv.append($(`<p>`).text(` `));
                         }
                     })
             }
@@ -78,12 +79,13 @@
             function showWaitList(){
                 $.get("/api/waitlist", function(data) {
                         console.log(data);
-                        let tableDiv = $("#showWaitList");
+                        let waitlistDiv = $("#showWaitList");
                         for (let i=0; i<data.length; i++) {
-                            tableDiv.append($(`<li>`).text(`Name: ${data[i].name}`));
-                            tableDiv.append($(`<li>`).text(`Email: ${data[i].email}`));
-                            tableDiv.append($(`<li>`).text(`Phone: ${data[i].phone}`));
-                            tableDiv.append($(`<li>`).text(`ID: ${data[i].id}`));
+                            waitlistDiv.append($(`<li>`).text(`Name: ${data[i].name}`));
+                            waitlistDiv.append($(`<li>`).text(`Email: ${data[i].email}`));
+                            waitlistDiv.append($(`<li>`).text(`Phone: ${data[i].phone}`));
+                            waitlistDiv.append($(`<li>`).text(`ID: ${data[i].id}`));
+                            waitlistDiv.append($(`<p>`).text(` `));
                         }
                     })
             }

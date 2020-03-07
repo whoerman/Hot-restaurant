@@ -65,10 +65,8 @@
           email: $("#email").val().trim(),
           id: $("#id").val().trim(),
         };
-        console.log(newReservation);
         $.post("/api/tablerequests", newReservation)
         .then(function(data) {
-            console.log(`Adding table request: ${data}`);
         });
       });
     </script>

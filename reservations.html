@@ -19,7 +19,8 @@
             <hr class="my-4">
             <p>Make your reservation</p>
 
-            <a id="tables" class="btn btn-primary btn-lg" href="/tables" role="button"><i class="far fa-list-alt"></i> View
+            <a id="tables" class="btn btn-primary btn-lg" href="/tables" role="button"><i class="far fa-list-alt"></i>
+                View
                 Tables</a>
             <a id="home" class="btn btn-light btn-lg" href="/index" role="button"><i class="fas fa-home"></i></a>
 
@@ -51,31 +52,36 @@
         </div>
     </div>
 
-    <div class="container">
-        <a id="tables mr-3" href="/api/tables">API Table Link</a>
-        <a id="waitlist" href="/api/waitlist">API Wait List</a>
+    <div class="container my-1">
+        <a id="tables" class="mr-1" href="/api/tables">API Table Link</a>
+        <span class="border-right border-dark"></span>
+        <a id="waitlist" class="ml-1" href="/api/waitlist">API Wait List</a>
     </div>
 
 
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
 
-<script>
-    $("#submit").on("click", function(event) {
-        event.preventDefault();
-        var newReservation = {
-          name: $("#name").val().trim(),
-          phone: $("#phone").val().trim(),
-          email: $("#email").val().trim(),
-          id: $("#id").val().trim(),
-        };
-        $.post("/api/tablerequests", newReservation)
-        .then(function(data) {
+    <script>
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            var newReservation = {
+                name: $("#name").val().trim(),
+                phone: $("#phone").val().trim(),
+                email: $("#email").val().trim(),
+                id: $("#id").val().trim(),
+            };
+            $.post("/api/tablerequests", newReservation)
+                .then(function (data) {
+                });
         });
-      });
     </script>
-    
+
 
 </body>
 

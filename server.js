@@ -41,11 +41,14 @@ app.get("/api/waitlist", function(req, res) {
     return res.json(waitList);
 });
 
+app.get("/api/tableRequests", function(req, res) {
+    return res.json(tableRequests);
+});
+
 
 //Create new table request
 app.post("/api/tablerequests", function(req, res) {
     let newTable = req.body;
-    console.log(newTable);
     tableRequests.push(newTable);
     res.json(newTable);
   });

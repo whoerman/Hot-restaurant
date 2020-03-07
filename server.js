@@ -21,11 +21,15 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/tables", function(req, res) {
+app.get("/index.html", function(req, res) {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/tables.html", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
 
-app.get("/reservations", function(req, res) {
+app.get("/reservations.html", function(req, res) {
     res.sendFile(path.join(__dirname, "reservations.html"));
 });
 

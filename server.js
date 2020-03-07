@@ -11,8 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Reservations and Waitlist variables
+const tableRequests = [];
 const tables = [];
 const waitList = [];
+
 
 //Routes
 app.get("/", function(req, res) {
@@ -36,23 +38,25 @@ app.get("/api/waitlist", function(req, res) {
 });
 
 
-//Create new table
+//Create new table request
+app.post("/api/tablerequests", function(req, res) {
+    let newTable = req.body;
+    console.log(newTable);
+    tableRequests.push(newTable);
+    res.json(newTable);
+  });
 
 
 
 
-//Create new waitlist
 
-
-
-
-//Listen
+//Server is listening
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 
 
-//This will go in the reservations.html page
+//Event listener for the submit button (reservation.html page)
 $("#submit").on("click", function(event) {
     event.preventDefault();
     var newReservation = {
@@ -61,17 +65,8 @@ $("#submit").on("click", function(event) {
       email: $("#email").val().trim(),
       id: $("#id").val().trim(),
     };
-    if (tables.length < 5) {
-        $.post("/api/tables", newReservation)
-        .then(function(data) {
-          console.log(`Adding table: ${data}`);
-        });
-    } else {
-        $.post("/api/waitlist", newReservation)
-        .then(function(data) {
-          console.log(`Adding to wait list: ${data}`);
-        });
-    }
-    // Question: What does this code do??
-
+    $.post("/api/tablerequests", newReservation)
+    .then(function(data) {
+        console.log(`Adding table request: ${data}`);
+    });
   });
